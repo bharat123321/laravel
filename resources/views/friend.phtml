@@ -1,0 +1,49 @@
+
+                   @foreach (Auth::user()->friends as $friends)
+                      @if(Auth::user()->id == $friends->acceptor)
+                     <!--  upload file so in browser in big size  !-->
+                    <img src="/uploads/avatar/{{$friends->avatar}}" style="width:50px; height:50px; float:left; border-radius:50%; ">
+                     <!--  Add user name in upload file  !-->
+                    <h2 style="color:black;margin-top: -20px;"><b>{{strtoupper($friends->firstname)}}</b> update his profile picture</h2>
+                     <!-- Add Date in upload file   !-->
+                   <!-- <small>{{date_format($user->created_at,'F, d,Y') }}</small><br>!-->
+                   <small>{{ $post->created_at->toFormattedDateString()}}</small><br>
+
+                   
+                    
+                    <h2>{{$post->body}}</h2>
+                 <img src="/uploads/avatar/{{$friends->avatar}}" style="width:550px; height:450px; float:left; border-radius:0%;  "> 
+                  </div>
+                   <!--  like and dislike  !-->
+                     
+                   <div class="interaction"><br>
+                    <a href="{{url('like/'.$post->id.'/')}}"><span class="btn btn-primary">Like({{$like}})</span>
+                    </a><a href="{{url('/dislike/'.$post->id.'/')}}"><span class="btn btn-primary">Dislike({{$dislike}})</span>
+                    </a><br><br>
+                     </div>
+   
+
+                    <!--  close like and dislike  !-->
+                             <!--  comment form   !-->
+                  <div class="card"> 
+                    <div class="card-block"> 
+                          <form id="comment-form" method="post" action="{{ route('comments.store') }}" >
+                        {{ csrf_field() }}
+                         <input type="hidden" name="friend_id" value="{{ $friends->acceptor }}" >
+                         
+                        <div class="row" style="padding: 10px;">
+                            <div class="form-group">
+                              
+                              <img src="/uploads/avatar/{{$friends->avatar}}" style="width:50px; height:50px; float:left; border-radius:50%; margin-left:-5px;"><b>{{$friends->firstname}}{{$friends->lastname}}</b>
+                                <textarea class="form-control" style="width:650px; margin-left: 60px; border-radius:50px;"  name="comment" placeholder="Write something from your heart..!"  ></textarea>
+                               
+                            </div>
+                        </div>
+                        <div class="row" style="padding: 0 10px 0 10px;">
+                            <div class="form-group">
+                                <input type="submit" class="btn  btn-lg" value="Comment" name="comments">
+                            </div>
+                        </div>
+                    </form>
+                  </div>
+                  </div>
