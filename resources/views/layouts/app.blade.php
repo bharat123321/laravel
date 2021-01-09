@@ -314,7 +314,7 @@ width: 100px;
  <script type="text/javascript" src="js/searched.js"></script>
  <script type="text/javascript" src="js/showsearch.js"></script>
 <script type="text/javascript" src="{{asset('/js/main.js')}}"></script>
-  <script type="text/javascript" src="{{asset('/js/likeds.js')}}"></script>
+  <script type="text/javascript" src="{{asset('/js/liked.js')}}"></script>
 
     <!-- Scripts --> 
      <!-- Scripts for searching --> 

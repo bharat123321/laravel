@@ -19,7 +19,7 @@
      <div class="panel-body" style="margin-top:-40px;" >
  <div class="panel-heading">
  <div style="border:1px solid gray; width:80px; height:80px; position:relative; top:20px;   margin-bottom:0px;  border-radius:50px;">
-<a href="#" style="width:auto;" onclick="document.getElementById('id01').style.display='block'"> <img src="/uploads/avatar/{{$user->avatar}}"class="img-thumbnail"  style="width:80px; height:80px;  border-radius:50%; margin-top:0px; "></a></div> 
+<a href="#" style="width:auto;" onclick="document.getElementById('id01').style.display='block'"> <img src="/uploads/avatar/{{$user->avatar}}"class="img-thumbnail"  style="width:80px; height:80px;  border-radius:50%; margin-top:-12px; "></a></div> 
 <h4 style="position:relative; top:20px; ">Add to story</h4>
                  
 </div>
@@ -150,15 +150,20 @@
                            if($check == ''){ 
 
                      ?>
-                      
-     <a href="{{url('showlike/'.$post->id.'/')}}" class="haha" style="color:blue; position:relative;top:-43px; text-decoration: none"><span class="badge"> Liked {{$countlike->where('post_id',$post->id)->count()}}</span> </a>  
+                     <div class="test">
+                       
+                     </div>
+               <a  href="{{url('showlike/'.$post->id.'/')}}" id="haha" class="badge" style="position:relative;top:-45px;" >   </a>
+     <a href="{{url('showlike/'.$post->id.'/')}}"     style="color:blue; position:relative;top:-43px; text-decoration: none"><span class="badge"> Liked {{$countlike->where('post_id',$post->id)->count()}}</span> </a>  
         <br>
-      
-      <a href="#" class="likey" id="{{$post->id}}"style="position: relative;top:-30px;text-decoration: none;"><span  class="btn btn-primary" >Like</span> </a> 
+       
+             <a href="#" class="likey" id="{{$post->id}}"style="position: relative;top:-30px;text-decoration: none;"><span  class="btn btn-primary" >Like</span> </a> 
 
   <?php } else{ ?>
-                  
-                 <a  href="{{url('showlike/'.$post->id.'/')}}" class="haha"><span class="badge" style="position:relative;top:-45px;" >Liked {{$post->likes->count()}} </span></a> <br> 
+                   
+
+
+                 <a  href="{{url('showlike/'.$post->id.'/')}}"><span class="badge" style="position:relative;top:-45px;" >Liked {{$post->likes->count()}} </span></a> <br> 
                  <a href="#" class="likey" id="{{$post->id}}"><span  class="btn btn-primary" style="position: relative;top:-30px;">You like this post</span> </a>                                                                                                          
                 <?php } ?>
                  <a href="{{url('/dislike/'.$post->id.'/')}}"><span  style="position:relative;top:-30px; " class="btn btn-danger">Dislike</span></a>
