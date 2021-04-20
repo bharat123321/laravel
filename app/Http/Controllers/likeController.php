@@ -26,12 +26,12 @@ class likeController extends Controller
              $like->user_id = $user_id;
              $like->post_id = $post_id;
              $like->like = 1;
-              $like->save();
+               $like->save();
 
               } 
                $like_user = Like::where(['user_id'=>$loggedin_user,'post_id'=>$post_id])->where('like',1)->get();
                foreach($like_user as $s){
-                $fl = $s->like;
+                $fl = $s->post_id;
                }
 
                
